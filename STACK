@@ -1,0 +1,38 @@
+class Stack:
+    def __init__(self):
+        self.a=[]
+    def push(self,item):
+        self.a.append(item)
+    def pop(self):
+        return self.a.pop();
+    def length(self):
+        return len(self.a)
+    def isEmpty(self):
+        return self.a.isEmpty();
+    def paran(self,string):
+        for x in string:
+            if(x=='('):
+                self.push(1);
+            if(x==')'):
+                if(len(self.a)==0):
+                    return 'false';
+                self.pop()
+        return 'true'
+    def params(self,string):
+        for x in string:
+            if(x=='(' or x=='{' or x=='['):
+                self.push(x);
+            if(x==')' or x=='}' or x==']'):
+                if(len(self.a)==0):
+                    print('1')
+                    return 'false';
+                self.pop()
+            if(len(self.a)):
+                print('0')
+                print(self.a)
+                return 'false'
+        return 'true'
+
+obj=Stack();
+a=obj.params("((}))")
+print(a)
