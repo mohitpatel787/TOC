@@ -1,0 +1,32 @@
+class Stack:
+    def __init__(self):
+        self.string=[]
+        
+    def addElement(self,el):
+        self.string.append(el)
+    def removeElement(self):
+        return self.string.pop(0)
+
+obj = Stack()
+t=input("Enter the String")
+# if t.count('c')==0:
+#     return print("Not Valid")
+for x in t:
+    if x=='c':
+        break
+    obj.addElement(x)
+print(obj.string)
+templist=obj.string
+templist.reverse()
+print(t.split('c'))
+templist=t.split('c')[1]
+print(templist)
+for x in templist:
+    temp=obj.removeElement()
+    print(x,"/",temp)
+    if temp!=x:
+        print("Not a Valid String")
+        break
+else:
+    print("Valid String")
+    
